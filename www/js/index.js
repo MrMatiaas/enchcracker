@@ -16,7 +16,10 @@ window.Item = Item;
 
 window.onload = async () => {
     resInit = await resInit;
-    const manipulator = new Manipulator(0, 0);
+    const manipulator = Manipulator.new(0, 0);
+       if (!manipulator) {
+       throw new Error("No se pudo inicializar Manipulator");
+   }
     const config = new Config();
     const lang = new Language(document.querySelector("#lang-select"), config, changeHtmlLang);
     /**
